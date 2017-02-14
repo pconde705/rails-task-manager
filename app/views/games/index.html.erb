@@ -1,0 +1,24 @@
+<h1>Games#index</h1>
+<p>Find me in app/views/games/index.html.erb</p>
+
+<% @games.each do |game| %>
+<h3><%= "#{game.name} | "%><em><%= "#{game.genre}"%></em></h3>
+<%= link_to "#{game.name} page", game_path(game) %>
+<%= link_to "Edit", edit_game_path(game) %>
+<%= link_to "Delete Entry", game_path(game), method: :delete %>
+<%= link_to "Create New Game", new_game_path(game) %>
+<ul>
+  <li>
+    <em><%="Format: "%></em><strong><%="#{game.format}" %></strong>
+  </li>
+  <li>
+    <em><%="Price: "%></em><strong><%="#{game.msrp}" %></strong>
+  </li>
+  <li>
+    <em><%="Multiplayer: "%></em><strong><%="#{game.multiplayer}" %></strong>
+  </li>
+  <li>
+    <em><%="Release Date: "%></em><strong><%="#{game.release_date}" %></strong>
+  </li>
+</ul>
+<% end %>
